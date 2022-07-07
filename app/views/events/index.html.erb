@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <%= button_to("Log Out", destroy_user_session_path, method: :delete) %>
   <br>
-  <%# <%= button_to("Create New Event", new_event_path, method: :get) %>
+  <%= button_to("Create New Event", new_event_path, method: :get) %>
 <% else %>
   <%= button_to("Sign In", new_user_session_path,method: :get) %>
   <br>
