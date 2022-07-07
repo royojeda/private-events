@@ -1,0 +1,8 @@
+<div id="<%= dom_id user %>">
+  <% user.created_events.each do |created_event| %>
+    <p>
+      <strong>Name:</strong>
+      <%= created_event.name %>
+    </p>
+  <% end %>
+</div>
