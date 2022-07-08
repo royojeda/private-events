@@ -17,6 +17,10 @@
       <strong>Name:</strong>
       <%= past_event.name %>
     </p>
+
+    <p>
+      <%= link_to "View", event_path(past_event) %>
+    </p>
   <% end %>
 
   <br>
@@ -26,6 +30,10 @@
     <p>
       <strong>Name:</strong>
       <%= future_event.name %>
+    </p>
+
+    <p>
+      <%= link_to "View", event_path(future_event) %>
     </p>
   <% end %>
 </div>

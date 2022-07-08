@@ -9,7 +9,11 @@
     <br><br>
   <% end %>
   <%# <%= link_to "Edit this event", edit_event_path(@event) %>
-  <%= link_to "Back to events", events_path %>
+  <% if request.referer.include?("/users") %>
+    <%= link_to "Back to my events", user_path(current_user) %>
+  <% else %>
+    <%= link_to "Back to events", events_path %>
+  <% end %>
   <br><br>
   <%# <%= button_to "Destroy this event", @event, method: :delete %>
 </div>
