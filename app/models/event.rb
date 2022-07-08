@@ -1,11 +1,6 @@
 class Event < ApplicationRecord
-  def self.past
-    where("date < ?", Date.current)
-  end
-
-  def self.future
-    where("date >= ?", Date.current)
-  end
+  scope :past, -> { where("date < ?", Date.current) }
+  scope :future, -> { where("date >= ?", Date.current) }
 
   belongs_to :creator, class_name: "User"
 
