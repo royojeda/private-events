@@ -4,11 +4,8 @@
 
 <div>
   <% if user_signed_in? %>
-    <%# <%= button_to "Attend this event", attendances_path, params: { event: @event  } %>
-    <%= form_with model: Attendance.new do |form| %>
-      <%= hidden_field_tag "attendance[attended_event_id]", @event.id %>
-      <%= form.submit "Attend this event" %>
-    <% end %>
+    <%= button_to "Attend This Event", attendances_path,
+                                       params: { attendance: { attended_event_id: @event.id } } %>
     <br><br>
   <% end %>
   <%# <%= link_to "Edit this event", edit_event_path(@event) %>
