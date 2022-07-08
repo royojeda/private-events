@@ -10,16 +10,24 @@
   <%= button_to("Sign Up", new_user_registration_path,method: :get) %>
 <% end %>
 
-<h1>Events</h1>
-
-<br>
-
 <div id="events">
-  <% @events.each do |event| %>
+  <h1>Past Events</h1>
+  <% @past_events.each do |past_event| %>
     <p>
-      <h2><%= event.name %></h2>
+      <h2><%= past_event.name %></h2>
+      <p><%= past_event.date %></p>
     </p>
-    <%= link_to "View", event_path(event) %>
-    <br><br><br>
+    <%= link_to "View", event_path(past_event) %>
+  <% end %>
+
+  <br><br>
+
+  <h1>Future Events</h1>
+  <% @future_events.each do |future_event| %>
+    <p>
+      <h2><%= future_event.name %></h2>
+      <p><%= future_event.date %></p>
+    </p>
+    <%= link_to "View", event_path(future_event) %>
   <% end %>
 </div>
