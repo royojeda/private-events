@@ -12,6 +12,14 @@ class AttendancesController < ApplicationController
     end
   end
 
+  def destroy
+    @attendance = Attendance.where(attendee_id: current_user.id).where(attended_event_id: attendance_params[:attended_event_id]).first
+
+    @attendance.destroy
+
+    redirect_to event_path(attendance_params[:attended_event_id])
+  end
+
   private
 
   def attendance_params

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :events, only: [:index, :show, :new, :create]
   resources :attendances, only: [:create]
+
+  delete "attendances", to: "attendances#destroy"
 end
