@@ -7,11 +7,25 @@
     </p>
   <% end %>
 
+  <br><br>
+
   <h2>Attended Events</h2>
-  <% user.attended_events.each do |attended_event| %>
+
+  <h3>Past Events</h3>
+  <% user.attended_events.where("date < ?", Date.today).each do |past_event| %>
     <p>
       <strong>Name:</strong>
-      <%= attended_event.name %>
+      <%= past_event.name %>
+    </p>
+  <% end %>
+
+  <br>
+
+  <h3>Future Events</h3>
+  <% user.attended_events.where("date >= ?", Date.today).each do |future_event| %>
+    <p>
+      <strong>Name:</strong>
+      <%= future_event.name %>
     </p>
   <% end %>
 </div>
