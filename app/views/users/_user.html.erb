@@ -1,8 +1,17 @@
 <div id="<%= dom_id user %>">
+  <h2>Created Events</h2>
   <% user.created_events.each do |created_event| %>
     <p>
       <strong>Name:</strong>
       <%= created_event.name %>
+    </p>
+  <% end %>
+
+  <h2>Attended Events</h2>
+  <% user.attended_events.each do |attended_event| %>
+    <p>
+      <strong>Name:</strong>
+      <%= attended_event.name %>
     </p>
   <% end %>
 </div>

@@ -23,4 +23,12 @@
     <strong>Creator_ID:</strong>
     <%= event.creator.id %>
   </p>
+
+  <h2>Attendees</h2>
+  <% event.attendees.each do |attendee| %>
+    <p>
+      <%# <strong>Name:</strong> %>
+      <%= attendee.email %>
+    </p>
+  <% end %>
 </div>
