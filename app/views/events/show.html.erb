@@ -7,11 +7,11 @@
       <br><br>
       <%= button_to "Delete this event", event_path(@event), method: "delete" %>
     <% elsif @event.attendees.include?(current_user) %>
-      <%= button_to "Unattend This Event", attendances_path,
+      <%= button_to "Unattend this event", attendances_path,
                                         params: { attendance: { attended_event_id: @event.id } },
                                         method: "delete" %>
     <% else %>
-      <%= button_to "Attend This Event", attendances_path,
+      <%= button_to "Attend this event", attendances_path,
                                         params: { attendance: { attended_event_id: @event.id } } %>
     <% end %>
     <br><br>
@@ -22,5 +22,4 @@
     <%= link_to "Back to events", events_path %>
   <% end %>
   <br><br>
-  <%# <%= button_to "Destroy this event", @event, method: :delete %>
 </div>
