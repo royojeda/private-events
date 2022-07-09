@@ -4,7 +4,9 @@
 
 <div>
   <% if user_signed_in? %>
-    <% if @event.attendees.include?(current_user) %>
+    <% if @event.creator == current_user %>
+      <%= link_to "Edit this event", edit_event_path(@event) %>
+    <% elsif @event.attendees.include?(current_user) %>
       <%= button_to "Unattend This Event", attendances_path,
                                         params: { attendance: { attended_event_id: @event.id } },
                                         method: "delete" %>
@@ -14,7 +16,6 @@
     <% end %>
     <br><br>
   <% end %>
-  <%# <%= link_to "Edit this event", edit_event_path(@event) %>
   <% if request.referer.include?("/users") %>
     <%= link_to "Back to my events", user_path(current_user) %>
   <% else %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show]
-  resources :events, only: [:index, :show, :new, :create]
+  resources :events
   resources :attendances, only: [:create]
 
   delete "attendances", to: "attendances#destroy"

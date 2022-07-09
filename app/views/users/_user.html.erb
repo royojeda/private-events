@@ -4,6 +4,8 @@
     <p>
       <strong>Name:</strong>
       <%= created_event.name %>
+      <br>
+      <%= link_to "View", event_path(created_event) %>
     </p>
   <% end %>
 
@@ -13,27 +15,21 @@
 
   <h3>Past Events</h3>
   <% user.attended_events.where("date < ?", Date.today).each do |past_event| %>
-    <p>
       <strong>Name:</strong>
       <%= past_event.name %>
-    </p>
-
-    <p>
+      <br>
       <%= link_to "View", event_path(past_event) %>
-    </p>
+      <br><br>
   <% end %>
 
   <br>
 
   <h3>Future Events</h3>
   <% user.attended_events.where("date >= ?", Date.today).each do |future_event| %>
-    <p>
       <strong>Name:</strong>
       <%= future_event.name %>
-    </p>
-
-    <p>
+      <br>
       <%= link_to "View", event_path(future_event) %>
-    </p>
+      <br><br>
   <% end %>
 </div>
